@@ -23,6 +23,18 @@ class AuthenticationService {
     await _auth.signOut();
   }
 
+  Future<String> resetPassword(String email) async {
+    String reset;
+    try {
+     await _auth.sendPasswordResetEmail(email: email).catchError((e) {
+        reset = e.toString();
+      });
+    } catch (e) {
+      reset = e.toString();
+    }
+    return reset;
+  }
+
   Future signup({@required email, @required password}) async {
     try {
       var authResult = await _auth.createUserWithEmailAndPassword(

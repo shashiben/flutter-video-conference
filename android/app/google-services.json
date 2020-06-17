@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "103011538999",
+    "firebase_url": "https://video-conference-2690e.firebaseio.com",
+    "project_id": "video-conference-2690e",
+    "storage_bucket": "video-conference-2690e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103011538999:android:90c5a3b6531d85d78987b2",
+        "android_client_info": {
+          "package_name": "com.example.video_conference"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103011538999-lgv4a3f9i19gqva5flineobbglillms7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIz-9ct4b27ypndEO5FwAK1Eq4RU26je0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103011538999-lgv4a3f9i19gqva5flineobbglillms7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
