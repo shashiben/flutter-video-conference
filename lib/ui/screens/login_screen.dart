@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:stacked/stacked.dart';
 import 'package:video_conference/ui/widgets/circle_checkbox.dart';
 import 'package:video_conference/ui/widgets/inputField.dart';
@@ -35,17 +36,31 @@ class LoginScreen extends StatelessWidget {
                     "Login",
                     style: TextStyle(
                         fontFamily: "Gilroy",
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                         fontSize: 24),
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  InputField(hint: "Email id"),
+                  InputField(
+                    hint: "Email id",
+                    keyboardType: TextInputType.emailAddress,
+                    error: model.emailError,
+                    validator: model.updateEmail,
+                    iconData: FlutterIcons.email_minus_outline_mco,
+                  ),
                   SizedBox(
                     height: 10,
                   ),
-                  InputField(hint: "Password"),
+                  InputField(
+                    hint: "Password",
+                    keyboardType: TextInputType.text,
+                    iconData: FlutterIcons.textbox_password_mco,
+                    isSecure: true,
+                    error: model.passwordError,
+                    validator: model.updatePassword,
+                  ),
                   SizedBox(height: 15),
                   CircleCheckbox(
                       value: model.check,
@@ -54,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                       }),
                   SizedBox(height: 20),
                   GestureDetector(
-                    onTap: () => model.navigateToDashboard(),
+                    onTap: () => model.login(),
                     child: Container(
                       padding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 10),

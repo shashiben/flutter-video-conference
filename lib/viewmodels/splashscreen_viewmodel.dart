@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:video_conference/app/locator.dart';
@@ -9,11 +10,12 @@ class SplashScreenViewModel extends BaseViewModel {
       locator<AuthenticationService>();
   final NavigationService _navigationService = locator<NavigationService>();
 
-  Future init() async {
+  init(BuildContext context) async {
+    await precacheImage(AssetImage("assets/illustrations/splash.png"), context);
     var isUserLogged = await _authenticationService.isUserLoggedIn();
 
     if (isUserLogged) {
-      _navigationService.navigateTo(Routes.homeScreenRoute);
+      _navigationService.navigateTo(Routes.dashboardRoute);
     } else {
       _navigationService.navigateTo(Routes.authScreenRoute);
     }

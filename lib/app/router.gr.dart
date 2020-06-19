@@ -11,17 +11,20 @@ import 'package:video_conference/ui/screens/splashscreen.dart';
 import 'package:video_conference/ui/screens/home_screen.dart';
 import 'package:video_conference/ui/screens/auth_screen.dart';
 import 'package:video_conference/ui/screens/dashboard_screen.dart';
+import 'package:video_conference/ui/screens/chat_screen.dart';
 
 abstract class Routes {
   static const splashViewRoute = '/';
   static const homeScreenRoute = '/home-screen-route';
   static const authScreenRoute = '/auth-screen-route';
   static const dashboardRoute = '/dashboard-route';
+  static const chatScreenRoute = '/chat-screen-route';
   static const all = {
     splashViewRoute,
     homeScreenRoute,
     authScreenRoute,
     dashboardRoute,
+    chatScreenRoute,
   };
 }
 
@@ -54,6 +57,11 @@ class Router extends RouterBase {
       case Routes.dashboardRoute:
         return MaterialPageRoute<dynamic>(
           builder: (context) => Dashboard(),
+          settings: settings,
+        );
+      case Routes.chatScreenRoute:
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => ChatScreen(),
           settings: settings,
         );
       default:

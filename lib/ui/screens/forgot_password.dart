@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:stacked/stacked.dart';
 import 'package:video_conference/ui/widgets/inputField.dart';
 import 'package:video_conference/viewmodels/forgotpassword_viewmodel.dart';
@@ -31,6 +32,7 @@ class ForgotPassword extends StatelessWidget {
                   error: model.emailError,
                   keyboardType: TextInputType.emailAddress,
                   hint: "Email id",
+                  iconData: FlutterIcons.email_search_mco,
                 ),
                 SizedBox(
                   height: 20,

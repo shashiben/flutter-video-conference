@@ -52,7 +52,14 @@ class CircleCheckbox extends StatelessWidget {
           SizedBox(
             width: 10,
           ),
-          Text("Save account",style: TextStyle(fontFamily: "Gilroy",fontSize: 15,fontWeight: FontWeight.w200),)
+          Text(
+            "Save account",
+            style: TextStyle(
+                fontFamily: "Gilroy",
+                fontSize: 15,
+                fontWeight: FontWeight.w200,
+                color: Colors.black),
+          )
         ],
       ),
     );
