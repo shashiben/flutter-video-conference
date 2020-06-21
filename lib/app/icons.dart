@@ -3,3 +3,5 @@ import 'package:flutter_icons/flutter_icons.dart';
 
 const IconData googleIcon = FlutterIcons.google_ant;
 const IconData facebookIcon = FlutterIcons.facebook_zoc;
+
+const IconData infoIcon = FlutterIcons.info_ant;

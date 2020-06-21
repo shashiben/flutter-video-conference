@@ -44,22 +44,24 @@ class LoginScreen extends StatelessWidget {
                     height: 20,
                   ),
                   InputField(
+                    controller: model.emailController,
+                    validator: model.mailValid(),
                     hint: "Email id",
                     keyboardType: TextInputType.emailAddress,
                     error: model.emailError,
-                    validator: model.updateEmail,
                     iconData: FlutterIcons.email_minus_outline_mco,
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   InputField(
+                    controller: model.passController,
+                    validator: model.passValid(),
                     hint: "Password",
                     keyboardType: TextInputType.text,
                     iconData: FlutterIcons.textbox_password_mco,
-                    isSecure: true,
+                    obscure: true,
                     error: model.passwordError,
-                    validator: model.updatePassword,
                   ),
                   SizedBox(height: 15),
                   CircleCheckbox(
@@ -68,22 +70,25 @@ class LoginScreen extends StatelessWidget {
                         model.checkTap();
                       }),
                   SizedBox(height: 20),
-                  GestureDetector(
-                    onTap: () => model.login(),
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                      decoration: BoxDecoration(
-                          color: Colors.pink,
-                          border: Border.all(color: Colors.pink),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Text(
-                        "Login now",
-                        style: TextStyle(
-                            fontFamily: "Gilroy",
-                            fontSize: 15,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: GestureDetector(
+                      onTap: () => model.login(),
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        decoration: BoxDecoration(
+                            color: Colors.pink,
+                            border: Border.all(color: Colors.pink),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Text(
+                          "Login now",
+                          style: TextStyle(
+                              fontFamily: "Gilroy",
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white),
+                        ),
                       ),
                     ),
                   )

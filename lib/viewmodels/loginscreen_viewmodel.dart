@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:video_conference/app/locator.dart';
@@ -13,10 +14,8 @@ class LoginScreenViewModel extends BaseViewModel
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
 
-  String _email = '';
-  String get email => _email;
-  String _password = '';
-  String get password => _password;
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
 
   String emailError = '';
   String passwordError = '';
@@ -29,10 +28,26 @@ class LoginScreenViewModel extends BaseViewModel
     notifyListeners();
   }
 
+  mailValid() {
+    if (emailController.text != "") {
+      emailError = validateEmail(emailController.text);
+      notifyListeners();
+    }
+  }
+
+  passValid() {
+    if (passController.text != "") {
+      passwordError = validatePassword(passController.text);
+      notifyListeners();
+    }
+  }
+
   login() async {
     bool result = emailError.isEmpty && passwordError.isEmpty;
 
-    result = result && _email.isNotEmpty && _password.isNotEmpty;
+    result = result &&
+        emailController.text.isNotEmpty &&
+        passController.text.isNotEmpty;
 
     if (!result) {
       showInfoMessage(
@@ -45,8 +60,8 @@ class LoginScreenViewModel extends BaseViewModel
     setBusy(true);
 
     var authResult = await _authenticationService.login(
-      email: _email,
-      password: _password,
+      email: emailController.text,
+      password: passController.text,
     );
 
     setBusy(false);
@@ -63,19 +78,6 @@ class LoginScreenViewModel extends BaseViewModel
 
   navigateToDashboard() {
     _navigationService.navigateTo(Routes.dashboardRoute);
-  }
-
-  updateEmail(String email) {
-    _email = email;
-    emailError = validateEmail(email);
-    notifyListeners();
-  }
-
-  updatePassword(String password) {
-    _password = password;
-    passwordError = validatePassword(password);
-
-    notifyListeners();
   }
 
   init() {

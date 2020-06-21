@@ -3,23 +3,23 @@ import 'package:flutter/material.dart';
 class InputField extends StatelessWidget {
   final String error;
   final TextInputType keyboardType;
-  final bool isSecure;
   final int maxLength;
   final int maxLines;
   final Function(String) validator;
   final String hint;
   final Color color;
   final bool obscure;
+  final TextEditingController controller;
   final IconData iconData;
 
   const InputField(
       {Key key,
       this.hint,
       this.color,
-      this.obscure,
+      this.controller,
+      this.obscure = false,
       this.iconData,
       this.error = "",
-      this.isSecure = false,
       this.keyboardType,
       this.maxLength,
       this.maxLines = 1,
@@ -29,9 +29,10 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       maxLength: maxLength ?? null,
       maxLines: maxLines,
-      obscureText: isSecure,
+      obscureText: obscure,
       onChanged: validator ?? null,
       keyboardType: keyboardType,
       style: TextStyle(color: Color.fromRGBO(38, 50, 56, .50)),
@@ -58,7 +59,11 @@ class InputField extends StatelessWidget {
             borderSide: BorderSide(color: Colors.white, width: 1.0),
             borderRadius: BorderRadius.all(Radius.circular(16.0)),
           ),
-          prefixIcon: iconData != null ? Icon(iconData) : SizedBox(width: 0.1,)),
+          prefixIcon: iconData != null
+              ? Icon(iconData)
+              : SizedBox(
+                  width: 0.1,
+                )),
     );
   }
 }

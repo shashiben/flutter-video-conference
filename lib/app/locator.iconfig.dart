@@ -7,8 +7,11 @@
 import 'package:video_conference/services/agora_service.dart';
 import 'package:video_conference/services/authentication_service.dart';
 import 'package:video_conference/services/firestore_service.dart';
+import 'package:video_conference/services/imagepicker_service.dart';
 import 'package:video_conference/services/stacked_services.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:video_conference/services/storage_service.dart';
+import 'package:video_conference/services/user_service.dart';
 import 'package:get_it/get_it.dart';
 
 void $initGetIt(GetIt g, {String environment}) {
@@ -16,10 +19,13 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerLazySingleton<AgoraService>(() => AgoraService());
   g.registerLazySingleton<AuthenticationService>(() => AuthenticationService());
   g.registerLazySingleton<FirestoreService>(() => FirestoreService());
+  g.registerLazySingleton<ImagePickerService>(() => ImagePickerService());
   g.registerLazySingleton<NavigationService>(
       () => registerExternalServices.navigationService);
   g.registerLazySingleton<SnackbarService>(
       () => registerExternalServices.snackbarService);
+  g.registerLazySingleton<StorageService>(() => StorageService());
+  g.registerLazySingleton<UserService>(() => UserService());
 }
 
 class _$RegisterExternalServices extends RegisterExternalServices {

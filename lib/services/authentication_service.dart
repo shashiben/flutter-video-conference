@@ -26,7 +26,7 @@ class AuthenticationService {
   Future<String> resetPassword(String email) async {
     String reset;
     try {
-     await _auth.sendPasswordResetEmail(email: email).catchError((e) {
+      await _auth.sendPasswordResetEmail(email: email).catchError((e) {
         reset = e.toString();
       });
     } catch (e) {
@@ -37,9 +37,16 @@ class AuthenticationService {
 
   Future signup({@required email, @required password}) async {
     try {
-      var authResult = await _auth.createUserWithEmailAndPassword(
+      await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      return authResult.user != null;
-    } catch (e) {}
+      return true;
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+  Future<String> getUid() async {
+    var user = await _auth.currentUser();
+    return user.uid;
   }
 }
