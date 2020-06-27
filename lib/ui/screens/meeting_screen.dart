@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:video_conference/model/recent_chat.dart';
+import 'package:video_conference/model/recent_chat/recent_chat.dart';
 import 'package:video_conference/ui/utils/notifications.dart';
 import 'package:video_conference/ui/widgets/pull_to_refresh.dart';
 import 'package:video_conference/ui/widgets/recent_chat_widget.dart';

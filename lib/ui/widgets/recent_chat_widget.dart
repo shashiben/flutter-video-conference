@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:video_conference/model/recent_chat.dart';
+import 'package:video_conference/model/recent_chat/recent_chat.dart';
 
 import '../../app/colors.dart';
 
