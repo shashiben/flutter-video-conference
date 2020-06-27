@@ -44,25 +44,37 @@ class HomeScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconScreen(
-                    iconData: Icons.videocam,
-                    text: "New Meeting",
-                    color: Colors.orange,
+                  GestureDetector(
+                    onTap: () => model.navigateToNewMeeting(),
+                    child: IconScreen(
+                      iconData: Icons.videocam,
+                      text: "New Meeting",
+                      color: Colors.orange,
+                    ),
                   ),
-                  IconScreen(
-                    iconData: Icons.add,
-                    text: "Join",
-                    color: Colors.blue,
+                  GestureDetector(
+                    onTap: () => model.navigateToJoinMeeting(),
+                    child: IconScreen(
+                      iconData: Icons.add,
+                      text: "Join",
+                      color: Colors.blue,
+                    ),
                   ),
-                  IconScreen(
-                    iconData: Icons.schedule,
-                    text: "Schedule",
-                    color: Colors.grey,
+                  GestureDetector(
+                    onTap: () => model.navigateToSchedule(),
+                    child: IconScreen(
+                      iconData: Icons.schedule,
+                      text: "Schedule",
+                      color: Colors.grey,
+                    ),
                   ),
-                  IconScreen(
-                    iconData: Icons.share,
-                    text: "Share",
-                    color: Colors.green,
+                  GestureDetector(
+                    onTap: () => model.navigateToPublic(),
+                    child: IconScreen(
+                      iconData: FlutterIcons.public_mdi,
+                      text: "Public Meetings",
+                      color: Colors.green,
+                    ),
                   )
                 ],
               ),
@@ -70,7 +82,12 @@ class HomeScreen extends StatelessWidget {
                 thickness: 3,
                 color: surfaceColor,
                 height: 30,
-              )
+              ),
+              Text("Popular Live Meetings",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ))
             ],
           ),
         ),

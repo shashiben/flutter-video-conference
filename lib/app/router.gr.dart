@@ -13,6 +13,10 @@ import 'package:video_conference/ui/screens/auth_screen.dart';
 import 'package:video_conference/ui/screens/dashboard_screen.dart';
 import 'package:video_conference/ui/screens/chat_screen.dart';
 import 'package:video_conference/ui/screens/create_profile.dart';
+import 'package:video_conference/ui/screens/new_meeting.dart';
+import 'package:video_conference/ui/screens/join_meeting.dart';
+import 'package:video_conference/ui/screens/schedule_meetings.dart';
+import 'package:video_conference/ui/screens/public_meetings.dart';
 
 abstract class Routes {
   static const splashViewRoute = '/';
@@ -21,6 +25,10 @@ abstract class Routes {
   static const dashboardRoute = '/dashboard-route';
   static const chatScreenRoute = '/chat-screen-route';
   static const createProfileRoute = '/create-profile-route';
+  static const newMeetingRoute = '/new-meeting-route';
+  static const joinMeetingRoute = '/join-meeting-route';
+  static const scheduleRoute = '/schedule-route';
+  static const publicMeetingsRoute = '/public-meetings-route';
   static const all = {
     splashViewRoute,
     homeScreenRoute,
@@ -28,6 +36,10 @@ abstract class Routes {
     dashboardRoute,
     chatScreenRoute,
     createProfileRoute,
+    newMeetingRoute,
+    joinMeetingRoute,
+    scheduleRoute,
+    publicMeetingsRoute,
   };
 }
 
@@ -79,6 +91,26 @@ class Router extends RouterBase {
               key: typedArgs.key,
               email: typedArgs.email,
               password: typedArgs.password),
+          settings: settings,
+        );
+      case Routes.newMeetingRoute:
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => NewMeetingView(),
+          settings: settings,
+        );
+      case Routes.joinMeetingRoute:
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => JoinMeetingView(),
+          settings: settings,
+        );
+      case Routes.scheduleRoute:
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => ScheduleView(),
+          settings: settings,
+        );
+      case Routes.publicMeetingsRoute:
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => PublicMeetingsView(),
           settings: settings,
         );
       default:

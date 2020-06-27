@@ -7,7 +7,7 @@ import 'package:video_conference/app/icons.dart';
 import 'package:video_conference/app/locator.dart';
 import 'package:video_conference/app/router.gr.dart';
 import 'package:video_conference/app/strings.dart';
-import 'package:video_conference/model/user.dart';
+import 'package:video_conference/model/user/user.dart';
 import 'package:video_conference/services/authentication_service.dart';
 import 'package:video_conference/services/imagepicker_service.dart';
 import 'package:video_conference/services/snackbarservices.dart';

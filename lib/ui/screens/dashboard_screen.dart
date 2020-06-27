@@ -9,6 +9,8 @@ import 'package:video_conference/ui/screens/contacts_screen.dart';
 import 'package:video_conference/ui/screens/home_screen.dart';
 import 'package:video_conference/ui/screens/profile_screen.dart';
 
+import 'meeting_screen.dart';
+
 class Dashboard extends StatefulWidget {
   @override
   _DashboardState createState() => _DashboardState();
@@ -18,7 +20,7 @@ class _DashboardState extends State<Dashboard> {
   int currentIndex = 0;
   final tabs = [
     HomeScreen(),
-    Center(child: Text("Meetings")),
+    MeetingScreen(),
     ContactScreen(),
     ProfileScreen()
   ];
@@ -49,7 +51,8 @@ class _DashboardState extends State<Dashboard> {
               BottomNavigationBarItem(
                   icon: Icon(FlutterIcons.chat_mco), title: Text("Chats")),
               BottomNavigationBarItem(
-                  icon: Icon(FlutterIcons.contacts_ant), title: Text("Contacts")),
+                  icon: Icon(FlutterIcons.contacts_ant),
+                  title: Text("Contacts")),
               BottomNavigationBarItem(
                   icon: Icon(FlutterIcons.user_ant), title: Text("Profile"))
             ]),

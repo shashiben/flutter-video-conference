@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
-import 'package:video_conference/model/user.dart';
+import 'package:video_conference/model/user/user.dart';
 
 @lazySingleton
 class UserService {
@@ -14,10 +14,11 @@ class UserService {
     }
   }
 
-  Future getUserdata(String uid) async {
+  Future<User> getUserdata(String uid) async {
     try {
       var data = await _userRef.document(uid).get();
-      return User.fromDocument(data);
+      User _user = User.fromDocument(data);
+      return _user;
     } catch (e) {
       return e?.message ?? "Something went wrong! Try again later";
     }
