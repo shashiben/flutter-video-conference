@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:stacked_services/stacked_services.dart';
 import 'package:video_conference/app/locator.dart';
+import 'package:video_conference/app/snackbar_ui.dart';
 import 'package:video_conference/app/strings.dart';
 
 class SnackbarServiceHelper {
@@ -10,6 +11,7 @@ class SnackbarServiceHelper {
   Future<bool> showExitSnackbar() async {
     await _snackbarService.showCustomSnackBar(
       title: confirmExitInfo,
+      variant: SnackbarType.floating,
       duration: Duration(seconds: 5),
       message: confirmExitMessage,
       onMainButtonTapped: () => exit(0),
@@ -22,6 +24,7 @@ class SnackbarServiceHelper {
   showInfoMessage({String title, String message}) async {
     _snackbarService.showCustomSnackBar(
       title: title,
+      variant: SnackbarType.floating,
       duration: Duration(seconds: 5),
       message: message,
     );
@@ -30,6 +33,7 @@ class SnackbarServiceHelper {
   showErrorMessage({String title, String message}) async {
     _snackbarService.showCustomSnackBar(
       title: title,
+      variant: SnackbarType.floating,
       duration: Duration(seconds: 5),
       message: message,
     );
@@ -38,6 +42,7 @@ class SnackbarServiceHelper {
   showSuccessMessage({String title, String message}) async {
     _snackbarService.showCustomSnackBar(
       title: title,
+      variant: SnackbarType.floating,
       duration: Duration(seconds: 5),
       message: message,
     );
