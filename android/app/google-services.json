@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "103011538999",
-    "firebase_url": "https://video-conference-2690e.firebaseio.com",
-    "project_id": "video-conference-2690e",
-    "storage_bucket": "video-conference-2690e.appspot.com"
+    "project_number": "731919560516",
+    "project_id": "video-conference-8f51b",
+    "storage_bucket": "video-conference-8f51b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:103011538999:android:90c5a3b6531d85d78987b2",
+        "mobilesdk_app_id": "1:731919560516:android:a952fa3d1a7241a627b111",
         "android_client_info": {
           "package_name": "com.example.video_conference"
         }
       },
       "oauth_client": [
         {
-          "client_id": "103011538999-lgv4a3f9i19gqva5flineobbglillms7.apps.googleusercontent.com",
+          "client_id": "731919560516-shm3t48avls7bmmmr6ec37g7547vpkrn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCIz-9ct4b27ypndEO5FwAK1Eq4RU26je0"
+          "current_key": "AIzaSyCxRzs1mCUDRgzxLV2O7JISwK4b2IBQhsI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "103011538999-lgv4a3f9i19gqva5flineobbglillms7.apps.googleusercontent.com",
+              "client_id": "731919560516-shm3t48avls7bmmmr6ec37g7547vpkrn.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

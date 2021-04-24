@@ -38,7 +38,6 @@ dev_dependencies:
   json_serializable: null
 flutter_native_splash:
   background_image: "assets/illustrations/splash.png"
-  
 
 flutter:
   uses-material-design: true

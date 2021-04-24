@@ -91,7 +91,7 @@ class AuthPage extends StatelessWidget {
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(60)),
                                 child: Icon(
-                                  FlutterIcons.facebook_box_mco,
+                                  FlutterIcons.facebook_fea,
                                   color: Colors.grey,
                                   size: 15,
                                 ),
@@ -104,7 +104,7 @@ class AuthPage extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(60)),
-                                child: Icon(FlutterIcons.google_circles_mco,
+                                child: Icon(FlutterIcons.google_faw,
                                     color: Colors.grey, size: 15),
                               )
                             ],
