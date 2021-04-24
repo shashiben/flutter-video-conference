@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:video_conference/app/validators.dart';
 
 class LoginScreenViewModel extends BaseViewModel
     with Validators, SnackbarServiceHelper {

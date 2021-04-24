@@ -7,7 +7,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenBuilder(
-      viewModel: LoginPageViewModel(),
+      viewModel: LoginScreenViewModel(),
       onModelReady: (model) => model.init(),
       builder: (context, model, child) => Scaffold(
         body: Container(
