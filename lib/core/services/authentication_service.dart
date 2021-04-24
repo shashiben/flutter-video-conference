@@ -47,6 +47,6 @@ class AuthenticationService {
 
   String getUid() {
     var user = _auth.currentUser;
-    return user.uid;
+    return user!=null?user.uid:null;
   }
 }

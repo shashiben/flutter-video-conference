@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:video_conference/core/utils/architecture_view.dart';
 import 'package:video_conference/ui/screens/login%20page/login_page_view_model.dart';
+import 'package:video_conference/ui/widgets/circle_checkbox.dart';
+import 'package:video_conference/ui/widgets/inputField.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -9,7 +11,7 @@ class LoginScreen extends StatelessWidget {
     return ScreenBuilder(
       viewModel: LoginScreenViewModel(),
       onModelReady: (model) => model.init(),
-      builder: (context, model, child) => Scaffold(
+      builder: (context, uiHelpers, model) => Scaffold(
         body: Container(
           alignment: Alignment.center,
           color: Colors.white,

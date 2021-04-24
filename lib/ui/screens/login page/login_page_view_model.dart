@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:video_conference/app/locator.dart';
+import 'package:video_conference/app/strings.dart';
 import 'package:video_conference/app/validators.dart';
+import 'package:video_conference/core/services/authentication_service.dart';
+import 'package:video_conference/core/services/snackbar_service.dart';
+import 'package:video_conference/ui/screens/dashboard%20page/dashboard_page.dart';
 
 class LoginScreenViewModel extends BaseViewModel
     with Validators, SnackbarServiceHelper {
@@ -72,7 +77,8 @@ class LoginScreenViewModel extends BaseViewModel
   }
 
   navigateToDashboard() {
-    _navigationService.navigateTo(Routes.dashboardRoute);
+    _navigationService.navigateWithTransition(DashboardPage(),
+        transition: "fade");
   }
 
   init() {
