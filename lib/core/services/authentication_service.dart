@@ -1,10 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:video_conference/app/locator.dart';
+import 'package:video_conference/ui/screens/auth%20page/auth_page.dart';
 
 @lazySingleton
 class AuthenticationService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final NavigationService _navigationService = locator<NavigationService>();
 
   Future login({@required email, @required password}) async {
     try {
@@ -21,6 +25,7 @@ class AuthenticationService {
 
   Future signOut() async {
     await _auth.signOut();
+    _navigationService.clearTillFirstAndShowView(AuthPage());
   }
 
   Future<String> resetPassword(String email) async {
@@ -47,6 +52,6 @@ class AuthenticationService {
 
   String getUid() {
     var user = _auth.currentUser;
-    return user!=null?user.uid:null;
+    return user != null ? user.uid : null;
   }
 }
