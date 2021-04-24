@@ -83,5 +83,6 @@ class LoginScreenViewModel extends BaseViewModel
 
   init() {
     _check = false;
+    notifyListeners();
   }
 }
