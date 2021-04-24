@@ -5,6 +5,7 @@ import 'package:video_conference/app/locator.dart';
 import 'package:video_conference/app/strings.dart';
 import 'package:video_conference/app/validators.dart';
 import 'package:video_conference/core/services/snackbar_service.dart';
+import 'package:video_conference/ui/screens/create%20profile/create_profile_view.dart';
 
 class SignUpViewModel extends BaseViewModel
     with Validators, SnackbarServiceHelper {
@@ -59,8 +60,9 @@ class SignUpViewModel extends BaseViewModel
   }
 
   navigateToCreateProfile() {
-    // _navigationService.navigateTo(Routes.createProfileRoute,
-    //     arguments: CreateProfileArguments(
-    //         email: emailController.text, password: passController.text));
+    _navigationService.navigateWithTransition(
+        CreateProfile(
+            email: emailController.text, password: passController.text),
+        transition: "rotate");
   }
 }
