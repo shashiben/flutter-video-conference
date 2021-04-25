@@ -22,7 +22,6 @@ dependencies:
   get_it: null
   image_picker: ^0.7.4
   jitsi_meet: ^4.0.0
-  jitsi_meet_web: ^1.0.4
   path_provider: ^2.0.1
   permission_handler: ^7.0.0
   responsive_builder: ^0.4.1
