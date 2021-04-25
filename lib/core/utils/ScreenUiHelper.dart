@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 import 'package:video_conference/app/configs.dart';
 import 'package:video_conference/core/utils/scaling.dart';
+import '../../app/colors.dart' as colors;
 
 class ScreenUiHelper {
   double width;
@@ -39,12 +39,12 @@ class ScreenUiHelper {
   ScreenUiHelper.fromContext(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
 
-    surfaceColor = surfaceColor;
-    backgroundColor = backgroundColor;
-    primaryColor = primaryColor;
-    textPrimaryColor = textPrimaryColor;
-    textSecondaryColor = textSecondaryColor;
-    dividerColor = dividerColor;
+    surfaceColor = colors.surfaceColor;
+    backgroundColor = colors.backgroundColor;
+    primaryColor = colors.primaryColor;
+    textPrimaryColor = colors.textPrimaryColor;
+    textSecondaryColor = colors.textSecondaryColor;
+    dividerColor = colors.dividerColor;
 
     double screenWidth = mediaQuery.size.width;
     double screenHeight = mediaQuery.size.height;
@@ -53,21 +53,9 @@ class ScreenUiHelper {
 
     scalingHelper = ScalingHelper(width: screenWidth);
 
-    headlineSize = getDeviceType(mediaQuery.size) == DeviceScreenType.desktop
-        ? 24
-        : getDeviceType(mediaQuery.size) == DeviceScreenType.tablet
-            ? 24
-            : 20;
-    titleSize = getDeviceType(mediaQuery.size) == DeviceScreenType.desktop
-        ? 20
-        : getDeviceType(mediaQuery.size) == DeviceScreenType.tablet
-            ? 18
-            : 16;
-    bodySize = getDeviceType(mediaQuery.size) == DeviceScreenType.desktop
-        ? 14
-        : getDeviceType(mediaQuery.size) == DeviceScreenType.tablet
-            ? 14
-            : 12;
+    headlineSize = 26;
+    titleSize = 22;
+    bodySize = 16;
 
     headline = TextStyle(
         fontWeight: FontWeight.bold,
