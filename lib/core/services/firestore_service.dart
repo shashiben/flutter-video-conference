@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:video_conference/app/locator.dart';
 import 'package:video_conference/core/model/user.dart';
+import 'package:video_conference/core/model/create_meeting.dart';
 import 'package:video_conference/core/services/authentication_service.dart';
 import 'package:video_conference/core/utils/user_state_enum.dart';
 import 'package:video_conference/core/utils/user_utilities.dart';
@@ -74,6 +75,29 @@ class FirestoreService {
     await _firestore.collection("users").doc(userId).update({
       "state": stateNum,
     });
+  }
+
+  Future createMeeting(CreateMeeting cm) async {
+    await _firestore
+        .collection("meetings")
+        .doc(cm.timeStamp)
+        .set(CreateMeeting.toJson(cm));
+  }
+
+  Future joinMeeting(String code) async {
+    var data = await _firestore
+        .collection("meetings")
+        .where("code", isEqualTo: code)
+        .get();
+    if (data.docs.length != 0) {
+      print(data.docs);
+      if (data.docs[0].data()["endAt"] == null) {
+        return true;
+      }
+      if (int.parse(data.docs[0].data()["endAt"].toString()) >=
+          DateTime.now().millisecondsSinceEpoch) return true;
+    }
+    return false;
   }
 
   Stream<DocumentSnapshot> getUserStream({@required String uid}) =>

@@ -11,7 +11,7 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenBuilder(
       viewModel: DashboardPageViewModel(),
-      builder: (context, uiHelpers, model) => Scaffold(
+      builder: (context, uiHelpers, DashboardPageViewModel model) => Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -102,14 +102,7 @@ class DashboardPage extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         child: TextButton(
-                          onPressed: () {
-                            // showDialog(
-                            //     context: context,
-                            //     barrierDismissible: false,
-                            //     builder: (_) {
-                            //       return JoinRoomDialog();
-                            //     });
-                          },
+                          onPressed: () => model.navigateToJoinMeeting(),
                           child: Row(
                             children: [
                               Flexible(

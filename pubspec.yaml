@@ -28,6 +28,7 @@ dependencies:
   signal_strength_indicator: ^0.4.0
   stacked: ^2.1.0
   stacked_services: ^0.8.5
+  uuid: ^3.0.4
 
 dev_dependencies:
   flutter_test:

@@ -6,16 +6,20 @@ class InputField extends StatelessWidget {
   final int maxLength;
   final int maxLines;
   final Function(String) validator;
+  final Widget suffix;
   final String hint;
   final Color color;
   final bool obscure;
   final TextEditingController controller;
   final IconData iconData;
+  final bool enable;
 
   const InputField(
       {Key key,
       this.hint,
       this.color,
+      this.enable = true,
+      this.suffix = const SizedBox(),
       this.controller,
       this.obscure = false,
       this.iconData,
@@ -29,6 +33,7 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      enabled: enable,
       controller: controller,
       maxLength: maxLength ?? null,
       maxLines: maxLines,
@@ -45,6 +50,7 @@ class InputField extends StatelessWidget {
             fontFamily: "Gilroy",
           ),
           filled: true,
+          suffixIcon: suffix,
           fillColor: color ?? Colors.grey[100],
           contentPadding:
               EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
