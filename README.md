@@ -1,16 +1,23 @@
-# video_conference
+# video conference
 
-A new Flutter project.
+A Flutter Project similar to zoom functionalities
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- [x] Register/Login Screens
+- [x] Create Meeting
+- [x] Join Meeting
+- [x] Function to mute all video and audio
+- [x] Screen Sharing
+- [x] And many functionalities
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+|     Screen Name     |                                                    Preview                                                    |
+| :-----------------: | :-----------------------------------------------------------------------------------------------------------: |
+|     Splash View     | ![splash](https://raw.githubusercontent.com/shashiben/flutter-video-conference/master/screenshots/splash.png) |
+|      Home View      |   ![splash](https://raw.githubusercontent.com/shashiben/flutter-video-conference/master/screenshots/5.jpg)    |
+|    Options View     |   ![splash](https://raw.githubusercontent.com/shashiben/flutter-video-conference/master/screenshots/1.jpg)    |
+|    Meeting View     |   ![splash](https://raw.githubusercontent.com/shashiben/flutter-video-conference/master/screenshots/2.jpg)    |
+|  Join Meeting View  |   ![splash](https://raw.githubusercontent.com/shashiben/flutter-video-conference/master/screenshots/3.jpg)    |
+| Create Meeting View |   ![splash](https://raw.githubusercontent.com/shashiben/flutter-video-conference/master/screenshots/4.jpg)    |
