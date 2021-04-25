@@ -16,6 +16,7 @@ class JitsiService {
       bool audioOnly,
       @required String userDisplayName,
       @required String email,
+      bool isJoin = false,
       String subject,
       String profileImg}) async {
     try {
@@ -46,7 +47,8 @@ class JitsiService {
       }
       await JitsiMeet.joinMeeting(options,
           listener: JitsiMeetingListener(
-              onConferenceWillJoin: (data) => _onConferenceWillJoin(data, cm),
+              onConferenceWillJoin: (data) =>
+                  _onConferenceWillJoin(data, cm, isJoin: isJoin),
               onConferenceJoined: _onConferenceJoined,
               onConferenceTerminated: _onConferenceTerminated,
               onPictureInPictureWillEnter: _onPictureInPictureWillEnter,
@@ -57,8 +59,11 @@ class JitsiService {
     }
   }
 
-  _onConferenceWillJoin(Map<dynamic, dynamic> data, CreateMeeting cm) {
-    _firestoreService.createMeeting(cm);
+  _onConferenceWillJoin(Map<dynamic, dynamic> data, CreateMeeting cm,
+      {bool isJoin = false}) {
+    if (!isJoin) {
+      _firestoreService.createMeeting(cm);
+    }
     debugPrint("APPO _onConferenceWillJoin broadcasted");
   }
 

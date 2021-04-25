@@ -10,6 +10,7 @@ class JoinMeetingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenBuilder(
+      onModelReady: (m)=>m.init(),
         viewModel: JoinMeetingViewModel(),
         builder: (context, uiHelpers, JoinMeetingViewModel model) => Scaffold(
               body: Container(

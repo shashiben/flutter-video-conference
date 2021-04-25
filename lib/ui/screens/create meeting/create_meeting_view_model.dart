@@ -35,13 +35,18 @@ class CreateMeetingViewModel extends BaseViewModel {
   }
 
   joinMeeting() {
+    Uuid uuid = Uuid();
+
+    String randomId = uuid.v4();
     while (_user == null) {}
     CreateMeeting cm = CreateMeeting(
         name: _user.name,
+        roomId: randomId,
+        code: code,
         timeStamp: DateTime.now().millisecondsSinceEpoch.toString(),
         uid: _user.uid);
     _jitsiService.joinMeeting(
-        roomNo: Uuid().v4(),
+        roomNo: randomId,
         email: _user.email,
         userDisplayName: _user.name,
         audioMute: muteAudio,
