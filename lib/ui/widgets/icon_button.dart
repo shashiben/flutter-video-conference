@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:video_conference/app/colors.dart';
 
 class IconScreen extends StatelessWidget {
@@ -7,10 +10,10 @@ class IconScreen extends StatelessWidget {
   final Color color;
 
   const IconScreen(
-      {Key key,
-      @required this.iconData,
-      @required this.text,
-      @required this.color})
+      {Key? key,
+      required this.iconData,
+      required this.text,
+      required this.color})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -21,8 +24,7 @@ class IconScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               decoration: BoxDecoration(
                   color: color, borderRadius: BorderRadius.circular(15)),
               child: Icon(

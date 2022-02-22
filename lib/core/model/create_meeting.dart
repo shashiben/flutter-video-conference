@@ -1,10 +1,10 @@
 class CreateMeeting {
-  final String roomId;
-  final String timeStamp;
-  final String endAt;
-  final String uid;
-  final String code;
-  final String name;
+  final String? roomId;
+  final String? timeStamp;
+  final String? endAt;
+  final String? uid;
+  final String? code;
+  final String? name;
 
   const CreateMeeting(
       {this.roomId,

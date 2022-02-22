@@ -1,6 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+// Project imports:
 import 'package:video_conference/app/locator.dart';
 import 'package:video_conference/app/strings.dart';
 import 'package:video_conference/app/validators.dart';
@@ -26,17 +31,14 @@ class SignUpViewModel extends BaseViewModel
 
   updateEmail() {
     emailError = validateEmail(emailController.text);
-    notifyListeners();
   }
 
   updatePassword() {
     passwordError = validatePassword(passController.text);
-    notifyListeners();
   }
 
   updateConfirmPassword() {
     confirmPasswordError = validatePassword(confirmpassController.text);
-    notifyListeners();
   }
 
   signup() async {

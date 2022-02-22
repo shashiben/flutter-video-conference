@@ -1,14 +1,19 @@
+// Dart imports:
 import 'dart:io';
 
-import 'package:flutter/material.dart';
+// Flutter imports:
+
+// Package imports:
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+
+// Project imports:
 import 'package:video_conference/app/locator.dart';
 import 'package:video_conference/core/services/image_picker_service.dart';
 import 'package:video_conference/core/utils/user_state_enum.dart';
 
 class UserUtils {
-  static final ImagePickerService _imagePickerService =
+  static final ImagePickerService? _imagePickerService =
       locator<ImagePickerService>();
   static String getUsername(String email) {
     return "live:${email.split('@')[0]}";
@@ -21,10 +26,10 @@ class UserUtils {
     return firstNameInitial + lastNameInitial;
   }
 
-  static Future<File> pickImage({@required ImageSource source}) async {
+  static Future<File> pickImage({required ImageSource source}) async {
     File selectedImage = source == ImageSource.camera
-        ? await _imagePickerService.pickImageFromCamera()
-        : await _imagePickerService.pickImageFromGallery();
+        ? await _imagePickerService!.pickImageFromCamera()
+        : await _imagePickerService!.pickImageFromGallery();
     return selectedImage;
   }
 

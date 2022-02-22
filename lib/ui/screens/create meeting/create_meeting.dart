@@ -1,6 +1,11 @@
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_icons/flutter_icons.dart';
+
+// Project imports:
 import 'package:video_conference/app/colors.dart';
 import 'package:video_conference/core/utils/architecture_view.dart';
 import 'package:video_conference/ui/screens/create%20meeting/create_meeting_view_model.dart';
@@ -10,7 +15,7 @@ class CreateMeetingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenBuilder(
-        onModelReady: (m) => m.init(),
+        onModelReady: (dynamic m) => m.init(),
         viewModel: CreateMeetingViewModel(),
         builder: (context, uiHelpers, CreateMeetingViewModel model) => Scaffold(
               body: Container(
@@ -69,7 +74,7 @@ class CreateMeetingView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("${model.code}",
-                                style: uiHelpers.body.copyWith(
+                                style: uiHelpers.body!.copyWith(
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromRGBO(38, 50, 56, 0.30),
                                 )),

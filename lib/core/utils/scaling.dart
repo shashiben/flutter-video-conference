@@ -1,5 +1,8 @@
-import 'dart:ui';
+// Dart imports:
 import 'dart:math';
+import 'dart:ui';
+
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 class ScalingHelper {
@@ -18,7 +21,7 @@ class ScalingHelper {
   double _scale = 1.0;
 
   // if there is width, we'll use it or we can use default one
-  void init({double width}) {
+  void init({double? width}) {
     this.width = width ?? this.width;
   }
 

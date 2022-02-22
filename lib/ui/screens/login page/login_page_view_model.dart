@@ -1,6 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+// Project imports:
 import 'package:video_conference/app/locator.dart';
 import 'package:video_conference/app/strings.dart';
 import 'package:video_conference/app/validators.dart';
@@ -20,25 +25,23 @@ class LoginScreenViewModel extends BaseViewModel
   String emailError = '';
   String passwordError = '';
 
-  bool _check;
-  bool get check => _check;
+  bool? _check;
+  bool? get check => _check;
 
   checkTap() {
-    _check = !_check;
+    _check = !_check!;
     notifyListeners();
   }
 
   mailValid() {
     if (emailController.text != "") {
       emailError = validateEmail(emailController.text);
-      notifyListeners();
     }
   }
 
   passValid() {
     if (passController.text != "") {
       passwordError = validatePassword(passController.text);
-      notifyListeners();
     }
   }
 

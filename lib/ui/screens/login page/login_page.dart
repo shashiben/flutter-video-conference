@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_icons/flutter_icons.dart';
+
+// Project imports:
 import 'package:video_conference/core/utils/architecture_view.dart';
 import 'package:video_conference/ui/screens/login%20page/login_page_view_model.dart';
 import 'package:video_conference/ui/widgets/circle_checkbox.dart';
@@ -10,8 +15,8 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenBuilder(
       viewModel: LoginScreenViewModel(),
-      onModelReady: (model) => model.init(),
-      builder: (context, uiHelpers, model) => Scaffold(
+      onModelReady: (dynamic model) => model.init(),
+      builder: (context, uiHelpers, dynamic model) => Scaffold(
         body: Container(
           alignment: Alignment.center,
           color: Colors.white,
@@ -66,7 +71,7 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(height: 15),
                   CircleCheckbox(
                       value: model.check,
-                      onChanged: (bool c) {
+                      onChanged: (bool? c) {
                         model.checkTap();
                       }),
                   SizedBox(height: 20),

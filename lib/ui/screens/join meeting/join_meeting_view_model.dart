@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:stacked/stacked.dart';
+
+// Project imports:
 import 'package:video_conference/app/locator.dart';
 import 'package:video_conference/core/model/create_meeting.dart';
 import 'package:video_conference/core/model/user.dart';
@@ -9,21 +14,20 @@ import 'package:video_conference/core/services/jitsi_service.dart';
 
 class JoinMeetingViewModel extends BaseViewModel {
   final TextEditingController titleController = TextEditingController();
-  JitsiService _jitsiService = JitsiService();
-  CreateMeeting cm;
+  CreateMeeting? cm;
   final FirestoreService _firestoreService = locator<FirestoreService>();
-
+  final JitsiService _jitsiService = JitsiService();
   joinMeeting() async {
-    await _firestoreService.joinMeeting(titleController.text, _user);
+    await _jitsiService.joinMeetingInFirebase(titleController.text, _user);
   }
 
   //final SnackbarService _snackbarService = locator<SnackbarService>();
   final AuthenticationService _authService = locator<AuthenticationService>();
   bool muteVideo = false;
   bool muteAudio = false;
-  String uid;
+  String? uid;
 
-  User _user;
+  User? _user;
 
   changeVideo() {
     muteVideo = !muteVideo;

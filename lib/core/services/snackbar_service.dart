@@ -1,15 +1,19 @@
+// Dart imports:
 import 'dart:io';
 
+// Package imports:
 import 'package:stacked_services/stacked_services.dart';
+
+// Project imports:
 import 'package:video_conference/app/locator.dart';
 import 'package:video_conference/app/snackbar_ui.dart';
 import 'package:video_conference/app/strings.dart';
 
 class SnackbarServiceHelper {
-  final SnackbarService _snackbarService = locator<SnackbarService>();
+  final SnackbarService? _snackbarService = locator<SnackbarService>();
 
   Future<bool> showExitSnackbar() async {
-    await _snackbarService.showCustomSnackBar(
+    await _snackbarService!.showCustomSnackBar(
       title: confirmExitInfo,
       variant: SnackbarType.floating,
       duration: Duration(seconds: 5),
@@ -21,8 +25,8 @@ class SnackbarServiceHelper {
     return false;
   }
 
-  showInfoMessage({String title, String message}) async {
-    _snackbarService.showCustomSnackBar(
+  showInfoMessage({String? title, required String message}) async {
+    _snackbarService!.showCustomSnackBar(
       title: title,
       variant: SnackbarType.floating,
       duration: Duration(seconds: 5),
@@ -30,8 +34,8 @@ class SnackbarServiceHelper {
     );
   }
 
-  showErrorMessage({String title, String message}) async {
-    _snackbarService.showCustomSnackBar(
+  showErrorMessage({String? title, required String message}) async {
+    _snackbarService!.showCustomSnackBar(
       title: title,
       variant: SnackbarType.floating,
       duration: Duration(seconds: 5),
@@ -39,8 +43,8 @@ class SnackbarServiceHelper {
     );
   }
 
-  showSuccessMessage({String title, String message}) async {
-    _snackbarService.showCustomSnackBar(
+  showSuccessMessage({String? title, required String message}) async {
+    _snackbarService!.showCustomSnackBar(
       title: title,
       variant: SnackbarType.floating,
       duration: Duration(seconds: 5),

@@ -1,12 +1,12 @@
 class Call {
-  String callerId;
-  String callerName;
-  String callerPic;
-  String receiverId;
-  String receiverName;
-  String receiverPic;
-  String channelId;
-  bool hasDialled;
+  String? callerId;
+  String? callerName;
+  String? callerPic;
+  String? receiverId;
+  String? receiverName;
+  String? receiverPic;
+  String? channelId;
+  bool? hasDialled;
 
   Call({
     this.callerId,

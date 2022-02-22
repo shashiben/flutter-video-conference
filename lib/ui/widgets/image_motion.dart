@@ -1,6 +1,8 @@
+// Dart imports:
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 class SineCurve extends Curve {
@@ -16,8 +18,8 @@ class SineCurve extends Curve {
 }
 
 class SpinningBasketball extends StatefulWidget {
-  final AnimationController controller;
-  final double maxHeight;
+  final AnimationController? controller;
+  final double? maxHeight;
 
   SpinningBasketball({this.controller, this.maxHeight})
       : super(key: ValueKey(controller));
@@ -30,15 +32,15 @@ class SpinningBasketball extends StatefulWidget {
 
 class _SpinningBasketballState extends State<SpinningBasketball>
     with SingleTickerProviderStateMixin {
-  double _maxHeight;
+  double? _maxHeight;
 
-  AnimationController _controller;
+  AnimationController? _controller;
 
-  Animation<double> _spriteAnimation;
+  late Animation<double> _spriteAnimation;
 
-  Animation<double> _xAnimation;
-  Animation<double> _yAnimation;
-  Animation<double> _scaleAnimation;
+  late Animation<double> _xAnimation;
+  late Animation<double> _yAnimation;
+  late Animation<double> _scaleAnimation;
 
   _SpinningBasketballState(this._controller, this._maxHeight);
 
@@ -64,7 +66,7 @@ class _SpinningBasketballState extends State<SpinningBasketball>
         tween: Tween<double>(begin: 40.0, end: 59.0),
         weight: 1,
       ),
-    ]).animate(_controller);
+    ]).animate(_controller!);
 
     _xAnimation = TweenSequence<double>([
       TweenSequenceItem(
@@ -85,7 +87,7 @@ class _SpinningBasketballState extends State<SpinningBasketball>
             .chain(CurveTween(curve: Curves.easeInSine)),
         weight: 1,
       ),
-    ]).animate(_controller);
+    ]).animate(_controller!);
 
     _yAnimation = TweenSequence<double>([
       TweenSequenceItem(
@@ -107,7 +109,7 @@ class _SpinningBasketballState extends State<SpinningBasketball>
             .chain(CurveTween(curve: Curves.easeInCubic)),
         weight: 1,
       ),
-    ]).animate(_controller);
+    ]).animate(_controller!);
 
     _scaleAnimation = TweenSequence<double>([
       TweenSequenceItem(
@@ -123,9 +125,9 @@ class _SpinningBasketballState extends State<SpinningBasketball>
         tween: ConstantTween<double>(1.0),
         weight: 1,
       ),
-    ]).animate(_controller);
+    ]).animate(_controller!);
 
-    _controller.addListener(() {
+    _controller!.addListener(() {
       setState(() {});
     });
 
@@ -136,11 +138,11 @@ class _SpinningBasketballState extends State<SpinningBasketball>
   Widget build(context) {
     final appSize = MediaQuery.of(context).size;
 
-    double scaledWidth = 0.3 * _maxHeight * _scaleAnimation.value * 0.8;
-    double scaledHeight = 0.3 * _maxHeight * _scaleAnimation.value * 0.8;
+    double scaledWidth = 0.3 * _maxHeight! * _scaleAnimation.value * 0.8;
+    double scaledHeight = 0.3 * _maxHeight! * _scaleAnimation.value * 0.8;
 
-    final yOffset = _maxHeight * 0.08;
-    final backboardWidth = 0.8 * _maxHeight * 0.8;
+    final yOffset = _maxHeight! * 0.08;
+    final backboardWidth = 0.8 * _maxHeight! * 0.8;
     final backboardHeight = backboardWidth * 0.69375;
     final startY = yOffset * 3.0;
     final backboardY = startY + backboardHeight / 2;
@@ -151,7 +153,7 @@ class _SpinningBasketballState extends State<SpinningBasketball>
       left: _xAnimation.value * 160 * ((appSize.width / 320).clamp(1, 1.5)) +
           appSize.width / 2 -
           scaledWidth / 2,
-      top: _yAnimation.value * _maxHeight / 2 + rimY - scaledHeight,
+      top: _yAnimation.value * _maxHeight! / 2 + rimY - scaledHeight,
       width: scaledWidth,
       height: scaledHeight,
       child: AnimatedSprite(
@@ -167,14 +169,14 @@ class _SpinningBasketballState extends State<SpinningBasketball>
 class AnimatedSprite extends AnimatedWidget {
   final ImageProvider image;
   final int frameWidth;
-  final int frameHeight;
+  final int? frameHeight;
 
   AnimatedSprite({
-    Key key,
-    @required this.image,
-    @required this.frameWidth,
+    Key? key,
+    required this.image,
+    required this.frameWidth,
     this.frameHeight,
-    @required Animation<double> animation,
+    required Animation<double> animation,
   }) : super(key: key, listenable: animation);
 
   @override
@@ -192,13 +194,13 @@ class AnimatedSprite extends AnimatedWidget {
 class Sprite extends StatefulWidget {
   final ImageProvider image;
   final int frameWidth;
-  final int frameHeight;
+  final int? frameHeight;
   final num frame;
 
   Sprite(
-      {Key key,
-      @required this.image,
-      @required this.frameWidth,
+      {Key? key,
+      required this.image,
+      required this.frameWidth,
       this.frameHeight,
       this.frame = 0})
       : super(key: key);
@@ -208,8 +210,8 @@ class Sprite extends StatefulWidget {
 }
 
 class _SpriteState extends State<Sprite> {
-  ImageStream _imageStream;
-  ImageInfo _imageInfo;
+  ImageStream? _imageStream;
+  ImageInfo? _imageInfo;
 
   @override
   void initState() {
@@ -231,14 +233,14 @@ class _SpriteState extends State<Sprite> {
   }
 
   void _getImage() {
-    final ImageStream oldImageStream = _imageStream;
+    final ImageStream? oldImageStream = _imageStream;
     _imageStream = widget.image.resolve(createLocalImageConfiguration(context));
-    if (_imageStream.key == oldImageStream?.key) {
+    if (_imageStream!.key == oldImageStream?.key) {
       return;
     }
     final ImageStreamListener listener = ImageStreamListener(_updateImage);
     oldImageStream?.removeListener(listener);
-    _imageStream.addListener(listener);
+    _imageStream!.addListener(listener);
   }
 
   void _updateImage(ImageInfo imageInfo, bool synchronousCall) {
@@ -255,16 +257,16 @@ class _SpriteState extends State<Sprite> {
 
   @override
   Widget build(BuildContext context) {
-    ui.Image img = _imageInfo?.image;
+    ui.Image? img = _imageInfo?.image;
     if (img == null) {
       return SizedBox();
     }
     int w = img.width, frame = widget.frame.round();
-    int frameW = widget.frameWidth, frameH = widget.frameHeight;
+    int? frameW = widget.frameWidth, frameH = widget.frameHeight;
     int cols = (w / frameW).floor();
     int col = frame % cols, row = (frame / cols).floor();
     ui.Rect rect = ui.Rect.fromLTWH(
-        col * frameW * 1.0, row * frameH * 1.0, frameW * 1.0, frameH * 1.0);
+        col * frameW * 1.0, row * frameH! * 1.0, frameW * 1.0, frameH * 1.0);
     return CustomPaint(painter: _SpritePainter(img, rect));
   }
 }

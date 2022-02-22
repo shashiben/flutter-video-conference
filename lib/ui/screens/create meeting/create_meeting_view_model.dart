@@ -1,8 +1,14 @@
+// Dart imports:
 import 'dart:math';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:stacked/stacked.dart';
 import 'package:uuid/uuid.dart';
+
+// Project imports:
 import 'package:video_conference/app/locator.dart';
 import 'package:video_conference/core/model/create_meeting.dart';
 import 'package:video_conference/core/model/user.dart';
@@ -40,28 +46,28 @@ class CreateMeetingViewModel extends BaseViewModel {
     String randomId = uuid.v4();
     while (_user == null) {}
     CreateMeeting cm = CreateMeeting(
-        name: _user.name,
+        name: _user!.name,
         roomId: randomId,
         code: code,
         timeStamp: DateTime.now().millisecondsSinceEpoch.toString(),
-        uid: _user.uid);
+        uid: _user!.uid);
     _jitsiService.joinMeeting(
         roomNo: randomId,
-        email: _user.email,
-        userDisplayName: _user.name,
+        email: _user!.email,
+        userDisplayName: _user!.name,
         audioMute: muteAudio,
         videoMute: muteVideo,
         cm: cm);
   }
 
   //final SnackbarService _snackbarService = locator<SnackbarService>();
-  final FirestoreService _firestoreService = locator<FirestoreService>();
-  final AuthenticationService _authService = locator<AuthenticationService>();
+  final FirestoreService? _firestoreService = locator<FirestoreService>();
+  final AuthenticationService? _authService = locator<AuthenticationService>();
   bool muteVideo = false;
   bool muteAudio = false;
-  String uid;
+  String? uid;
 
-  User _user;
+  User? _user;
 
   changeVideo() {
     muteVideo = !muteVideo;
@@ -74,8 +80,8 @@ class CreateMeetingViewModel extends BaseViewModel {
   }
 
   init() async {
-    uid = _authService.getUid();
-    _user = await _firestoreService.getUserDetailsById(uid);
+    uid = _authService!.getUid();
+    _user = await _firestoreService!.getUserDetailsById(uid);
     generateNewCode();
   }
 }

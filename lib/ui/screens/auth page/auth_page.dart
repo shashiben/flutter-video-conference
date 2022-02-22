@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_icons/flutter_icons.dart';
+
+// Project imports:
 import 'package:video_conference/core/utils/ScreenUiHelper.dart';
 import 'package:video_conference/core/utils/architecture_view.dart';
 import 'package:video_conference/ui/screens/auth%20page/auth_page_view_model.dart';
@@ -8,7 +13,7 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenBuilder(
-        onModelReady: (m) => m.init(),
+        onModelReady: (dynamic m) => m.init(),
         viewModel: AuthPageViewModel(),
         builder: (BuildContext context, ScreenUiHelper uiHelpers,
                 AuthPageViewModel model) =>

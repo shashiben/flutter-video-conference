@@ -1,11 +1,11 @@
 class Log {
-  int logId;
-  String callerName;
-  String callerPic;
-  String receiverName;
-  String receiverPic;
-  String callStatus;
-  String timestamp;
+  int? logId;
+  String? callerName;
+  String? callerPic;
+  String? receiverName;
+  String? receiverPic;
+  String? callStatus;
+  String? timestamp;
 
   Log({
     this.logId,

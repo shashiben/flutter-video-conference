@@ -1,6 +1,11 @@
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_icons/flutter_icons.dart';
+
+// Project imports:
 import 'package:video_conference/app/colors.dart';
 import 'package:video_conference/core/utils/architecture_view.dart';
 import 'package:video_conference/ui/screens/join%20meeting/join_meeting_view_model.dart';
@@ -10,7 +15,7 @@ class JoinMeetingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenBuilder(
-      onModelReady: (m)=>m.init(),
+        onModelReady: (dynamic m) => m.init(),
         viewModel: JoinMeetingViewModel(),
         builder: (context, uiHelpers, JoinMeetingViewModel model) => Scaffold(
               body: Container(

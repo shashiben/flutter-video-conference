@@ -1,21 +1,22 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
-  final String error;
-  final TextInputType keyboardType;
-  final int maxLength;
+  final String? error;
+  final TextInputType? keyboardType;
+  final int? maxLength;
   final int maxLines;
-  final Function(String) validator;
+  final Function(String)? validator;
   final Widget suffix;
-  final String hint;
-  final Color color;
+  final String? hint;
+  final Color? color;
   final bool obscure;
-  final TextEditingController controller;
-  final IconData iconData;
+  final TextEditingController? controller;
+  final IconData? iconData;
   final bool enable;
 
   const InputField(
-      {Key key,
+      {Key? key,
       this.hint,
       this.color,
       this.enable = true,
@@ -42,7 +43,7 @@ class InputField extends StatelessWidget {
       keyboardType: keyboardType,
       style: TextStyle(color: Color.fromRGBO(38, 50, 56, .50)),
       decoration: InputDecoration(
-          errorText: error.isEmpty ? null : error,
+          errorText: error!.isEmpty ? null : error,
           hintText: hint,
           hintStyle: TextStyle(
             color: Color.fromRGBO(38, 50, 56, 0.30),

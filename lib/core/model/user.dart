@@ -1,11 +1,11 @@
 class User {
-  final String uid;
-  final String name;
-  final String email;
-  final String username;
-  final String status;
-  final int state;
-  final String profilePhoto;
+  final String? uid;
+  final String? name;
+  final String? email;
+  final String? username;
+  final String? status;
+  final int? state;
+  final String? profilePhoto;
 
   const User({
     this.uid,

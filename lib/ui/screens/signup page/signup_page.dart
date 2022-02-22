@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_icons/flutter_icons.dart';
+
+// Project imports:
 import 'package:video_conference/core/utils/architecture_view.dart';
 import 'package:video_conference/ui/screens/signup%20page/signup_page_view_model.dart';
 import 'package:video_conference/ui/widgets/inputField.dart';
@@ -9,7 +14,7 @@ class SignupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenBuilder(
       viewModel: SignUpViewModel(),
-      builder: (context, uiHelpers, model) => Scaffold(
+      builder: (context, uiHelpers, SignUpViewModel model) => Scaffold(
         body: Container(
           alignment: Alignment.center,
           color: Colors.grey[100],
@@ -79,14 +84,16 @@ class SignupPage extends StatelessWidget {
                             color: Colors.pink,
                             border: Border.all(color: Colors.pink),
                             borderRadius: BorderRadius.circular(20)),
-                        child: Text(
-                          "Sign Up",
-                          style: TextStyle(
-                              fontFamily: "Gilroy",
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white),
-                        ),
+                        child: model.isBusy
+                            ? CircularProgressIndicator()
+                            : Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white),
+                              ),
                       ),
                     ),
                   )

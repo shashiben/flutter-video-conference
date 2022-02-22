@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_icons/flutter_icons.dart';
+
+// Project imports:
 import 'package:video_conference/core/utils/architecture_view.dart';
 import 'package:video_conference/ui/screens/forgot%20password/forgot_page_view_model.dart';
 import 'package:video_conference/ui/widgets/inputField.dart';
@@ -9,7 +14,7 @@ class ForgotPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenBuilder(
       viewModel: ForgotPasswordViewModel(),
-      builder: (context, uiHelpers, model) => Scaffold(
+      builder: (context, uiHelpers, dynamic model) => Scaffold(
         body: Container(
           padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
           color: Colors.white,

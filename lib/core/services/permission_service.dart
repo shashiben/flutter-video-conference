@@ -1,6 +1,8 @@
-import 'package:permission_handler/permission_handler.dart';
-
+// Flutter imports:
 import 'package:flutter/services.dart';
+
+// Package imports:
+import 'package:permission_handler/permission_handler.dart';
 
 class Permissions {
   static Future<bool> cameraAndMicrophonePermissionsGranted() async {

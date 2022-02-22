@@ -1,24 +1,23 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 class CircleCheckbox extends StatelessWidget {
   final bool value;
-  final ValueChanged<bool> onChanged;
-  final Color activeColor;
-  final Color checkColor;
+  final ValueChanged<bool?> onChanged;
+  final Color? activeColor;
+  final Color? checkColor;
   final bool tristate;
-  final MaterialTapTargetSize materialTapTargetSize;
+  final MaterialTapTargetSize? materialTapTargetSize;
 
   CircleCheckbox({
-    Key key,
-    @required this.value,
+    Key? key,
+    required this.value,
     this.tristate = false,
-    @required this.onChanged,
+    required this.onChanged,
     this.activeColor,
     this.checkColor,
     this.materialTapTargetSize,
-  })  : assert(tristate != null),
-        assert(tristate || value != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +32,7 @@ class CircleCheckbox extends StatelessWidget {
               child: Container(
                 decoration: new BoxDecoration(
                   border: Border.all(
-                      width: 2,
-                      color: Theme.of(context).unselectedWidgetColor ??
-                          Theme.of(context).disabledColor),
+                      width: 2, color: Theme.of(context).unselectedWidgetColor),
                   borderRadius: new BorderRadius.circular(100),
                 ),
                 child: Checkbox(

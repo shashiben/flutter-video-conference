@@ -1,9 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:video_conference/core/utils/architecture_view.dart';
 import 'package:video_conference/ui/screens/dashboard%20page/dashboard_page_view_model.dart';
-import '../message page/message_page_view.dart';
-import '../history page/history_page_view.dart';
 import '../contact page/contacts_view.dart';
+import '../history page/history_page_view.dart';
+import '../message page/message_page_view.dart';
 
 class DashboardPage extends StatelessWidget {
   final views = [MessageView(), HistoryView(), ContactPage()];

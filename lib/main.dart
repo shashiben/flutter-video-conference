@@ -1,7 +1,12 @@
-import 'package:firebase_core/firebase_core.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:firebase_core/firebase_core.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+// Project imports:
 import 'package:video_conference/app/locator.dart';
 import 'package:video_conference/app/snackbar_ui.dart';
 import 'package:video_conference/app/theme.dart';
@@ -22,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => MyAppViewModel(),
-      builder: (context, model, child) => MaterialApp(
+      builder: (context, dynamic model, child) => MaterialApp(
           navigatorKey: StackedService.navigatorKey,
           theme: themeData(context),
           home: model.isUserLogged() ? DashboardPage() : AuthPage()),
